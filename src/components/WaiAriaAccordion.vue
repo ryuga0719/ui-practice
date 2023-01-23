@@ -1,15 +1,15 @@
 <!-- WAI-ARIAのオーサリング・プラクティスに従ったアコーディオンUI -->
 <template>
-  <div class="border border-red-500">
+  <div class="border-y border-gray-600 py-4">
     <!-- 見出し部分 -->
-    <h3 class="border border-blue-500 w-full bg-slate-400">
+    <h3 class="w-full">
       <button
         type="button"
         :aria-expanded="open"
         :aria-controls="contentId"
         :id="buttonId"
         @click="open = !open"
-        class="w-full"
+        class="w-full text-left"
       >
         <span>
           {{ heading }}
@@ -22,6 +22,7 @@
       role="region"
       :aria-labelledby="buttonId"
       v-show="open"
+      class="pt-4 border-t border-gray-400 mt-4"
     >
       <slot></slot>
     </div>
@@ -33,8 +34,8 @@ import { ref } from "vue";
 interface Props {
   heading?: string;
   isOpen?: boolean;
-  buttonId?: string;
-  contentId?: string;
+  buttonId: string;
+  contentId: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {

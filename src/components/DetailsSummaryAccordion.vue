@@ -1,9 +1,12 @@
 <template>
-  <details class="w-full bg-red-400" :open="open">
-    <summary class="w-full bg-slate-500 block cursor-pointer">
+  <details class="w-full border-y border-gray-600 py-4" :open="open">
+    <summary class="w-full block cursor-pointer">
       {{ heading }}
     </summary>
-    <slot></slot>
+
+    <div class="pt-4 border-t border-gray-400 mt-4">
+      <slot></slot>
+    </div>
   </details>
 </template>
 

@@ -1,52 +1,35 @@
-import MyButton from './Button.vue';
+import WaiAriaAccordion from "../../components/WaiAriaAccordion.vue";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
-  component: MyButton,
+  title: "Components/Accordions/WaiAriaAccordion",
+  component: WaiAriaAccordion,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-    },
-  },
 };
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { MyButton },
+  components: { WaiAriaAccordion },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<my-button v-bind="args" />',
+  template: `
+    <wai-aria-accordion v-bind="args">${args.content}</wai-aria-accordion>`,
 });
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Primary.args = {
-  primary: true,
-  label: 'Button',
+  heading: "アコーディオンのラベル",
+  buttonId: "wai-aria-accordion-button",
+  contentId: "wai-aria-accordion-content",
+  content: "コンテンツ",
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
+// export const Secondary = Template.bind({});
+// Secondary.args = {
+//   label: "Button",
+// };
