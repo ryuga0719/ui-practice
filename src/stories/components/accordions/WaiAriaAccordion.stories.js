@@ -1,23 +1,23 @@
-import DetailsSummaryAccordion from "../../components/DetailsSummaryAccordion.vue";
+import WaiAriaAccordion from "../../../components/accordions/WaiAriaAccordion.vue";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: "Components/Accordions/DetailsSummaryAccordion",
-  component: DetailsSummaryAccordion,
+  title: "Components/Accordions/WaiAriaAccordion",
+  component: WaiAriaAccordion,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
 };
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { DetailsSummaryAccordion },
+  components: { WaiAriaAccordion },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
   template: `
-    <details-summary-accordion v-bind="args">${args.content}</details-summary-accordion>`,
+    <wai-aria-accordion v-bind="args">${args.content}</wai-aria-accordion>`,
 });
 
 export const Primary = Template.bind({});

@@ -22,8 +22,10 @@
       role="region"
       :aria-labelledby="buttonId"
       v-show="open"
-      class="pt-4 border-t border-gray-400 mt-4"
+      class="overflow-hidden"
     >
+      <!-- inner -->
+      <div class="pt-4 border-t border-gray-400 mt-4"></div>
       <slot></slot>
     </div>
   </div>
