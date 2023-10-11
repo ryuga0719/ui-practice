@@ -80,6 +80,13 @@
         </p>
       </div>
     </div>
+
+    <h2>天地中央揃え(my-auto ver.)</h2>
+    <div class="bg-gray-300 flex flex-col min-h-[50vh] c-centered-wrapper p-1">
+      <div class="bg-blue-300">header</div>
+      <p class="bg-red-300">text</p>
+      <div class="bg-green-300">footer</div>
+    </div>
   </div>
 </template>
 
@@ -89,5 +96,21 @@
 .c-switcher-item {
   --threshold: 60rem; // 親要素の横幅が何pxでレイアウトを切り替えて欲しいか？
   flex-basis: calc((var(--threshold) - 100%) * 999);
+}
+
+.c-centered-wrapper > * {
+  @apply my-1;
+}
+
+.c-centered-wrapper > p {
+  @apply my-auto;
+}
+
+.c-centered-wrapper > :first-child:not(p) {
+  @apply mt-0;
+}
+
+.c-centered-wrapper > :last-child:not(p) {
+  @apply mb-0;
 }
 </style>
